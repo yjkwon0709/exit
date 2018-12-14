@@ -1,24 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <html>
 <head>
 	<%@ include file="/WEB-INF/include/include-head.jspf" %>
 </head>
 <body>
+<%@ include file="/WEB-INF/include/include-header.jspf" %>
 <h1>Exit Index Page!</h1>
 <h2>기능목록</h2>
-
 <ul>
 	<li><a href="#" id="BoardBtn">게시판</a></li>
 	<li><a href="#" id="signUpBtn">회원가입</a></li>
 	<c:choose>
-		<c:when test="${loginInfo.size() > 0 }">
-			<li><a href="#" id="logoutBtn">로그아웃</a></li>
+		<c:when test="${loginInfo eq null }">
+			<li><a href="#" id="loginBtn">로그인</a></li>
 		</c:when>
 		<c:otherwise>
-			<li><a href="#" id="loginBtn">로그인</a></li>
+			<li><a href="#" id="logoutBtn">로그아웃</a></li>
 		</c:otherwise>
 	</c:choose>
 </ul>

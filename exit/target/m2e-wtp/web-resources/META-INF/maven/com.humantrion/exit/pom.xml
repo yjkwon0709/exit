@@ -19,10 +19,22 @@
 	
 	<repositories>
 		<repository>
+			<id>mvn2</id>
+			<url>http://repo1.maven.org/maven2/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		
+		<repository>
 		    <id>oracle</id>
 		    <name>ORACLE JDBC Repository</name>
 		    <url>http://www.datanucleus.org/downloads/maven2/</url>
 		</repository>
+		
 		<repository>
 		    <id>egovframe</id>
 		    <url>http://maven.egovframe.kr:8080/maven/</url>
@@ -33,16 +45,17 @@
 		        <enabled>false</enabled>
 		    </snapshots>
 		</repository>
-		
 	</repositories>
 
+
+
 	<dependencies>
-		<!-- egov -->
+		<!-- EgovProperty --><!--  -->
 		<dependency>
 		<groupId>egovframework.rte</groupId>
 		<artifactId>egovframework.rte.ptl.mvc</artifactId>
 		<version>3.5.0</version>
-		<exclusions>
+		<!-- <exclusions>
 	      <exclusion> 
 	        <groupId>org.slf4j</groupId>
 	        <artifactId>slf4j-log4j12</artifactId>
@@ -51,43 +64,43 @@
 	        <groupId>log4j</groupId>
 	        <artifactId>log4j</artifactId>
 	      </exclusion>
-	    </exclusions> 
+	    </exclusions>  -->
 		</dependency>
 		
-		<!-- Tiles -->
+		<!-- Tiles --><!--  -->
 		 <dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-extras</artifactId>
             <version>3.0.8</version>
           </dependency>
-        <dependency>
+        <dependency><!--  -->
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-servlet</artifactId>
             <version>3.0.8</version>
         </dependency>
-        <dependency>
+        <dependency><!--  -->
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-jsp</artifactId>
             <version>3.0.8</version>
         </dependency>
 
 		<!-- DBCP -->
-		<dependency>
+		<dependency><!--  -->
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
 			<version>2.1.1</version>
 		</dependency>
-		<dependency>
+		<dependency><!--  -->
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
 			<version>1.4.5</version>
 		</dependency>
-		<dependency>
+		<dependency><!--  -->
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.38</version>
 		</dependency>
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>oracle</groupId>
 		    <artifactId>ojdbc6</artifactId>
 		    <version>11.2.0.3</version>
@@ -95,7 +108,7 @@
 		
 		
 		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>org.postgresql</groupId>
 		    <artifactId>postgresql</artifactId>
 		    <version>42.2.2.jre7</version>
@@ -103,21 +116,11 @@
 
 		
 		<!-- log  -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.bgee.log4jdbc-log4j2</groupId>
 			<artifactId>log4jdbc-log4j2-jdbc4</artifactId>
 			<version>1.16</version>
-			<exclusions>
-		      <exclusion> 
-		        <groupId>org.slf4j</groupId>
-		        <artifactId>slf4j-log4j12</artifactId>
-		      </exclusion>
-		      <exclusion> 
-		        <groupId>log4j</groupId>
-		        <artifactId>log4j</artifactId>
-		      </exclusion>
-		    </exclusions> 
-		</dependency> -->
+		</dependency>
 		
 		<dependency>
     		<groupId>org.lazyluke</groupId>
@@ -155,7 +158,7 @@
 		</dependency>
 		
 		<!-- Spring -->
-		<dependency>
+		<dependency><!--  -->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework-version}</version>
@@ -167,53 +170,53 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
+		<dependency><!--  -->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
 
 		<!-- AspectJ -->
-		<dependency>
+		<dependency><!--  -->
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>
 		
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>org.aspectj</groupId>
 		    <artifactId>aspectjweaver</artifactId>
 		    <version>${org.aspectj-version}</version>
 		</dependency>
 		 
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>org.aspectj</groupId>
 		    <artifactId>aspectjtools</artifactId>
 		    <version>${org.aspectj-version}</version>
 		</dependency>
 
 		<!-- log -->
-		<dependency>
+		<dependency><!--  -->
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${org.slf4j-version}</version>
 		</dependency>
-		<dependency>
+		<dependency><!--  -->
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
+		<dependency><!--  -->
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		
-		<dependency>
+		<!-- <dependency>
 			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
+			<artifactId>log4j</artifactId>  
 			<version>1.2.15</version>
 			<exclusions>
 				<exclusion>
@@ -232,133 +235,138 @@
 					<groupId>com.sun.jmx</groupId>
 					<artifactId>jmxri</artifactId>
 				</exclusion>
-			</exclusions>
+			</exclusions> 
 			<scope>runtime</scope>
-		</dependency>
+		</dependency> -->
 
 		<!-- @Inject -->
-		<dependency>
+		<dependency><!--  -->
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
 
 		<!-- Servlet -->
-		<dependency>
+		<dependency><!--  -->
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
+		<dependency><!--  -->
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
 			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
+		<dependency><!--  -->
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
 
 		<!-- Test -->
-		<dependency>
+		<dependency><!--  -->
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
 		
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>org.mockito</groupId>
 		    <artifactId>mockito-all</artifactId>
 		    <version>1.10.19</version>
 		</dependency>
 		
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>org.hamcrest</groupId>
 		    <artifactId>hamcrest-all</artifactId>
 		    <version>1.3</version>
 		</dependency>
 		
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>javax.validation</groupId>
 		    <artifactId>validation-api</artifactId>
 		    <version>1.1.0.Final</version>
 		</dependency>
 		
-		<dependency>
+		<dependency><!--  -->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 			<scope>test</scope>
 		</dependency>
 		
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>org.codehaus.jackson</groupId>
 		    <artifactId>jackson-mapper-asl</artifactId>
 		    <version>1.9.13</version>
 		</dependency>
 				
-		<dependency>		
+		<dependency><!--  -->		
 		    <groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>4.5.1</version>
 		</dependency>
 		
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>org.json</groupId>
 		    <artifactId>json</artifactId>
 		    <version>20151123</version>
 		</dependency>
 		
-		<dependency>
+		<dependency><!--  -->
 	    	<groupId>com.fasterxml.jackson.core</groupId>
 	    	<artifactId>jackson-core</artifactId>
 	    	<version>2.7.2</version>
 		</dependency>
 				
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.7.2</version>
 		</dependency>
 			
 		<!-- Apache commons utils -->	
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>commons-lang</groupId>
 		    <artifactId>commons-lang</artifactId>
 		    <version>2.6</version>
 		</dependency>
 		
+		
+		<!-- MultipartHttpServletRequset --><!--  -->
 		<dependency>
 		    <groupId>commons-io</groupId>
 		    <artifactId>commons-io</artifactId>
 		    <version>2.6</version>
 		</dependency>
 
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>commons-fileupload</groupId>
 		    <artifactId>commons-fileupload</artifactId>
 		    <version>1.3</version>
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna -->
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>net.java.dev.jna</groupId>
 		    <artifactId>jna</artifactId>
 		    <version>4.1.0</version>
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/net.java.dev.jna/platform -->
-		<dependency>
+		<dependency><!--  -->
 		    <groupId>net.java.dev.jna</groupId>
 		    <artifactId>platform</artifactId>
 		    <version>3.5.1</version>
 		</dependency>
-
 	</dependencies>
+	
+	
+	
+	
 	<build>
         <plugins>
             <plugin>

@@ -1,4 +1,4 @@
-<%@ page pageEncoding="utf-8"%>
+<%@ page pageEncoding="utf-8" %>
 <form name="selectOne">
 	<div class="header">
 		<div class="rela">
@@ -14,12 +14,67 @@
 			</ul>
 			<div class="etc">
 				<ul>
-					<li><a href="/exit/">홈</a></li>
-					<li><a href="#">회원가입</a></li>
-					<li><a href="#">로그인</a></li>
+					<li><a href="#" id="hd_homeBtn">| 홈 | </a></li>
+					<c:choose>
+						<c:when test="${loginInfo eq null }">
+							<li><a href="#" id="hd_signUpBtn">| 회원가입 | </a></li>
+							<li><a href="#" id="hd_loginBtn">| 로그인 | </a></li>
+						</c:when>
+						<c:otherwise>
+							<li>${loginInfo.name }닙 반갑습니다.</li>
+							<li><a href="#" id="hd_boardBtn">| 게시판  | </a></li>
+							<li><a href="#" id="hd_logoutBtn">| 로그아웃 | </a></li>
+						</c:otherwise>
+					</c:choose>
 					<li><a href="#">사이트맵</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 </form>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#hd_homeBtn").unbind("click").click(function(e){
+			e.preventDefault();
+			fn_hdGoHome();
+		});
+		
+		$("#hd_signUpBtn").unbind("click").click(function(e){
+			e.preventDefault();
+			fn_hdGoSignUp();
+		});
+		
+		$("#hd_loginBtn").unbind("click").click(function(e){
+			e.preventDefault();
+			fn_hdGoLogin();
+		});
+		
+		$("#hd_boardBtn").unbind("click").click(function(e){
+			e.preventDefault();
+			fn_hdGoBoard();
+		});
+		
+		$("#hd_logoutBtn").unbind("click").click(function(e){
+			e.preventDefault();
+			fn_hdGoLogout();
+		});
+	});
+	
+	function fn_hdGoHome(){
+		window.location.href="<c:url value='/' />";
+	}
+	function fn_hdGoSignUp(){
+		window.location.href="<c:url value='/user/openSignUp.do' />";
+	}
+	function fn_hdGoLogin(){
+		window.location.href="<c:url value='/user/openLogin.do' />";
+	}
+	function fn_hdGoBoard(){
+		window.location.href="<c:url value='/board/boardList.do' />";
+	}
+	function fn_hdGoLogout(){
+		window.location.href="<c:url value='/user/logoutTry.do' />";
+	}
+	
+
+</script>

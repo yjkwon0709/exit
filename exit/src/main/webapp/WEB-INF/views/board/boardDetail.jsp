@@ -5,6 +5,7 @@
 <%@ include file="/WEB-INF/include/include-head.jspf" %>
 </head>
 <body>
+	<%@ include file="/WEB-INF/include/include-header.jspf" %>
 	<table class="board_view">
 		<colgroup>
 			<col width="15%" />

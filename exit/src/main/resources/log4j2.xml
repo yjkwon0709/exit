@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
 <log4j:configuration 
     xmlns:log4j="http://jakarta.apache.org/log4j/" 
     debug="false">
     
-    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+    <!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d %5p [%c] %m%n" />
         </layout>   
@@ -13,45 +14,30 @@
     <appender name="console-infolog" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d %5p %m%n" />
-        </layout>  
+        </layout>   
     </appender>
+	
+	<!-- Application Loggers -->
+	<logger name="first" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console"/>
+	</logger>
+	
+	<!-- Query Loggers -->
+	<logger name="jdbc.sqlonly" additivity="false">  
+    	<level value="INFO"/>  
+        <appender-ref ref="console-infolog"/>  
+    </logger>
+    
+    <logger name="jdbc.resultsettable" additivity="false">  
+    	<level value="INFO"/>  
+        <appender-ref ref="console"/>  
+    </logger>  
 
-    <!-- application loogers -->
-    <logger name="egovframework" additivity="false">
-        <level value="DEBUG"/>
-        <appender-ref ref="console"/>
-    </logger>
- 
-    <!-- log SQL with timing information, post execution -->
-    <logger name="jdbc.sqltiming" additivity="false">
-        <level value="WARN" />
-        <appender-ref ref="console" />
-    </logger>
- 
-    <logger name="jdbc.audit" additivity="false">
-        <level value="WARN" />
-        <appender-ref ref="console" />
-    </logger>
-    
-    <logger name="jdbc.resultset" additivity="false">
-        <level value="WARN" />
-        <appender-ref ref="console" />
-    </logger>
-    
-    <logger name="org.springframework" additivity="false">
-        <level value="INFO" />
-        <appender-ref ref="console" />
-        <appender-ref ref="file" />
-    </logger>
-    
-    <logger name="java.sql" additivity="false">
-        <level value="WARN"/> 
-        <appender-ref ref="console"/> 
-    </logger> 
-    
-    <root>
-        <level value="INFO" />
-        <appender-ref ref="console" />
-    </root>
+	<!-- Root Logger -->
+	<root>
+		<priority value="off"/>
+		<appender-ref ref="console" />
+	</root>
                        
 </log4j:configuration>
