@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="User">
+	<select id="selectUserID" parameterType="hMap" resultType="hMap">
+		SELECT
+			COUNT(ID) AS RESULT
+		FROM
+			USER_INFO
+		WHERE
+			ID = #{ID}
+	</select>
+	
+	<insert id="insertUserData" parameterType="hMap">
+		INSERT INTO USER_INFO(
+			NO,
+			ID,
+			PASSWORD,
+			NAME,
+			TEL
+		)
+		VALUES(
+			NEXTVAL('SEQ_USER_INFO_IDX'),
+			#{ID},
+			#{PASSWORD},
+			#{NAME},
+			#{TEL}
+		)
+	</insert>
+	
+	<select id="selectUserInfo" parameterType="hMap" resultType="hMap">
+		SELECT
+			NO,
+			ID,
+			NAME,
+			TEL
+		FROM
+			USER_INFO
+		WHERE
+			ID = #{ID}
+	</select>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Common">
+	<!-- java.math.BigDecimal = bDec, java.util.HashMap = hMap -->
+	<select id="selectFileInfo" parameterType="bDec" resultType="hMap">
+		SELECT
+			STORED_FILE_NAME,
+			ORIGINAL_FILE_NAME
+		FROM
+			TB_FILE
+		WHERE
+			IDX = #{IDX}
+	</select>
+	
+	<sql id="PagingPre">
+		<![CDATA[
+			SELECT
+				AAA.*
+			FROM(
+				SELECT
+					COUNT(*) OVER() AS TOTAL_COUNT,
+					AA.*
+				FROM(		
+		]]>
+	</sql>
+	<sql id="PagingPost">
+		<![CDATA[
+				) AA
+			) AAA
+			WHERE
+				AAA.RNUM BETWEEN #{START} AND #{END}
+		]]>
+	</sql>
+</mapper>

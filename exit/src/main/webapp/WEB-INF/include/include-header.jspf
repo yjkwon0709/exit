@@ -1,0 +1,25 @@
+<%@ page pageEncoding="utf-8"%>
+<form name="selectOne">
+	<div class="header">
+		<div class="rela">
+			<h1>
+				<a href="#">소위행매</a>
+			</h1>
+			<ul class="gnb">
+				<li><a href="#">ABOUT커뮤니티매핑</a></li>
+				<li><a href="#">내커퓨니티맵</a></li>
+				<li><a href="#">커뮤니티맵</a></li>
+				<li><a href="#">활동소식</a></li>
+				<li><a href="#">알림마당</a></li>
+			</ul>
+			<div class="etc">
+				<ul>
+					<li><a href="/exit/">홈</a></li>
+					<li><a href="#">회원가입</a></li>
+					<li><a href="#">로그인</a></li>
+					<li><a href="#">사이트맵</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</form>
