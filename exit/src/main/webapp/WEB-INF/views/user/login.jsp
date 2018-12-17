@@ -23,6 +23,10 @@
 					<th scope="row">비밀번호</th>
 					<td><input type="password" id="user_password" name="PASSWORD" class="wdp_90"></td>
 				</tr>
+				<tr>
+					<th scope="row">아이디 저장</th>
+					<td><input type="checkbox" id="id_save"></td>
+				</tr>
 			</tbody>
 		</table>
 		<div class="btn_area">
@@ -35,6 +39,9 @@
 			$("#login_btn").unbind("click").click(function(e){
 				e.preventDefault();
 				fn_login();
+			});
+			$("#id_save").change(function{
+				
 			});
 		});
 		

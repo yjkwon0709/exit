@@ -7,7 +7,7 @@
 <body>
 	<script>
 		window.alert("${msg}");
-		window.location.href="/exit/"; /* 수정해야함  */
+		window.location.href="/exit/"; 
 	</script>
 </body>
 </html>

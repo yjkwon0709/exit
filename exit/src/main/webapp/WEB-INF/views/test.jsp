@@ -2,7 +2,4 @@
 <h1>테스트</h1>
  
 <script type="text/javascript">
-    $(function() {
-        alert('body');
-    });    
 </script>

@@ -8,7 +8,7 @@
 	<%@ include file="/WEB-INF/include/include-header.jspf" %>
 	
 	<form id="frm">
-		<table class="board_list">
+		<table class="board_list" style="text-align: center; margin: 0; padding: 0" >
 			<caption>회원가입</caption>
 			<thead>
 				<tr>

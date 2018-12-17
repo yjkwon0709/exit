@@ -3,7 +3,6 @@
 	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Board">
-	<!-- java.math.BigDecimal = bDec, java.util.HashMap = hMap -->
 	<select id="selectBoardList" resultType="hMap">
 			SELECT
 			    IDX,
@@ -19,7 +18,6 @@
 	
 	<select id="pagingBoardList" parameterType="hMap" resultType="hMap">
 		<include refid="Common.PagingPre"/>
-		<![CDATA[
 			SELECT
 				ROW_NUMBER() OVER (ORDER BY IDX DESC) RNUM,
 				IDX,
@@ -30,7 +28,6 @@
 				TB_BOARD
 			WHERE
 				DEL_GB = 'N'
-		]]>
 		<include refid="Common.PagingPost" />	
 	</select>
 	
@@ -148,5 +145,18 @@
 			IDX = #{FILE_IDX}
 	</update>
 	
+	<!-- <select id="listSearch" parameterType="" resultType="hMap">
+	
+	</select> -->
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">where title like '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'c'.toString()">where content like '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'w'.toString()">where writer like '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'tc'.toString()">where (title like '%' || #{keyword} || '%')
+														or (content like '%' || #{keyword} || '%')</if>
+		</if>
+	</sql>
 	
 </mapper>

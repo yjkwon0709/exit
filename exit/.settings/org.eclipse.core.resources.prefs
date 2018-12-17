@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/resources/POSTGRESQL/TB_BOARD.properties=UTF-8
+encoding//src/main/webapp/WEB-INF/views/board/boardList.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/user/loginSuccess.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/user/logout.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/user/signUpComplete.jsp=UTF-8

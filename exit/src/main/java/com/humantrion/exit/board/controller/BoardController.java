@@ -42,7 +42,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/board/boardList.do")
 	public ModelAndView boardList(CommandMap map) throws Exception{
-		return new ModelAndView("/board/boardList");
+		return new ModelAndView("/board/boardList.page");
 	}
 	
 	@RequestMapping(value="/board/setBoardList.do")
@@ -62,7 +62,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/board/boardWrite.do")
 	public ModelAndView boardWrite(HttpServletRequest req,HttpServletResponse res, CommandMap map) throws Exception{
-		return new ModelAndView("/board/boardWrite", "map", map);
+		return new ModelAndView("/board/boardWrite.page", "map", map);
 	
 	}
 	
@@ -89,7 +89,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/board/boardDetail.do")
 	public ModelAndView boardDetail(CommandMap map, HttpServletRequest req) throws Exception{
-		ModelAndView mv = new ModelAndView("/board/boardDetail");
+		ModelAndView mv = new ModelAndView("/board/boardDetail.page");
 		Map<String, Object> selectedOne;
 		if(map.isEmpty()) {
 			@SuppressWarnings("unchecked")
@@ -106,7 +106,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/board/boardUpdate.do")
 	public ModelAndView updateBoard(CommandMap map) throws Exception{
-		ModelAndView mv = new ModelAndView("/board/boardUpdate");
+		ModelAndView mv = new ModelAndView("/board/boardUpdate.page");
 		Map<String, Object> selectedOne = boardService.selectBoardDetail(new BigDecimal((String)map.get("IDX")));
 		mv.addObject("selectedOne", selectedOne.get("map"));
 		mv.addObject("list",selectedOne.get("list"));
@@ -127,24 +127,28 @@ public class BoardController {
 		boardService.deleteBoard(new BigDecimal((String)map.get("IDX")));
 		return new ModelAndView("redirect:/board/boardList.do","map", map);
 	}
-
-	///////////////////////  tiles test//////////////////////////
-	@RequestMapping(value="/test.do")
-	public ModelAndView test() {
-		ModelAndView mv = new ModelAndView("/test");
-		return mv;
-	}
 	
-	@RequestMapping(value="/testPage.do")
-	public ModelAndView testPage() {
-		ModelAndView mv = new ModelAndView("/test.page");
-		return mv;
-	}
+	// tiles test
+	 @RequestMapping("/test.do")
+	    public String test() {
+	        return "test";
+	    }    
+	    
+	    /**
+	     * Tiles를 사용(header, left, footer 포함)
+	     */        
+	    @RequestMapping("/testPage.do")
+	    public String testPage() {
+	        return "test.page";
+	    }
+	    
+	    /**
+	     * Tiles를 사용(header, left, footer 제외)
+	     */    
+	    @RequestMapping("/testPart.do")
+	    public String testPart() {
+	        return "test.part";
+	    }
 	
-	@RequestMapping(value="/testPart.do")
-	public ModelAndView testPart() {
-		ModelAndView mv = new ModelAndView("/test.part");
-		return mv;
-	}
-	///////////////////////  tiles test///////////////////////////////
+	
 }
