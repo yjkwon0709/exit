@@ -26,7 +26,7 @@ public class UserController {
 	////////////////	회원가입	////////////////
 	@RequestMapping(value="/user/openSignUp.do")
 	public ModelAndView openSignUp(CommandMap map) throws Exception{
-		return new ModelAndView("/user/signUp");
+		return new ModelAndView("/user/signUp.page");
 	}
 	@RequestMapping(value="/user/checkUserID.do")
 	@ResponseBody
@@ -37,7 +37,7 @@ public class UserController {
 	@RequestMapping(value="/user/signUp.do")
 	public ModelAndView signUp(CommandMap map) throws Exception{
 		userService.insertUserData(map.getMap());
-		return new ModelAndView("/user/signUpComplete","msg","회원가입이 되었습니다.");
+		return new ModelAndView("/user/signUpComplete.page","msg","회원가입이 되었습니다.");
 	}
 	
 	///////////////		로그인		////////////////
@@ -45,20 +45,20 @@ public class UserController {
 	public ModelAndView openLogin(HttpServletRequest req, HttpServletResponse res, CommandMap map) throws Exception {
 		if(req.getSession().getAttribute("loginInfo") != null) {
 			String msg="이미 로그인된 상태입니다.";
-			return new ModelAndView("/user/loginSuccess", "msg", msg);
+			return new ModelAndView("/user/loginSuccess.page", "msg", msg);
 		} else {
-			return new ModelAndView("/user/login");
+			return new ModelAndView("/user/login.page");
 		}
 	}
 	@RequestMapping(value="/user/loginTry.do")
 	public ModelAndView login(HttpServletRequest req, CommandMap map) throws Exception{
-		ModelAndView mv = new ModelAndView("/user/loginSuccess");
+		ModelAndView mv = new ModelAndView("/user/loginSuccess.page");
 		Map<String, Object> userMap = userService.selectUserInfo(map.getMap());
 		
 		if(userMap == null) {
 			mv.addObject("msg", "로그인에 실패하였습니다.");
 		} else {
-			req.getSession().setAttribute("loginInfo", userMap);
+			req.getSession().setAttribute("loginInfo.page", userMap);
 			req.getSession().setMaxInactiveInterval(60*30);
 			mv.addObject("msg", "로그인에 성공하였습니다.");
 		}
@@ -69,13 +69,13 @@ public class UserController {
 	@RequestMapping(value="/user/logoutTry.do")
 	public ModelAndView logout(HttpServletRequest req) throws Exception{
 		req.getSession().removeAttribute("loginInfo");
-		return new ModelAndView("/user/logout","msg","로그아웃 되었습니다.");
+		return new ModelAndView("/user/logout.page","msg","로그아웃 되었습니다.");
 	}
 	
 	//////////////		로그인  요청	//////////////
 	@RequestMapping(value="/user/needLogin.do")
 	public ModelAndView needLogin() throws Exception {
-		return new ModelAndView("/user/loginWarning", "msg", "로그인 후 이용해주시기 바랍니다.");
+		return new ModelAndView("/user/loginWarning.page", "msg", "로그인 후 이용해주시기 바랍니다.");
 	}
 	
 	
