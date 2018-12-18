@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ include file="/WEB-INF/include/include-tag.jspf" %>
 <form id="frm">
 	<table class="board_list" style="text-align: center; margin: 0; padding: 0" >
 		<caption>회원가입</caption>
@@ -81,7 +81,7 @@
 		} else{
 			$.ajax({
 				type : "POST",
-				url : "<c:url value='/user/checkUserID.do' />",//"/user/checkUserID.do",
+				url : "<c:url value='/user/checkUserID.do' />",
 				data : userData,
 				dataType : "json",
 				error : function(error) {

@@ -30,6 +30,7 @@
 			<li><a href="#">커뮤니티맵</a></li>
 			<li><a href="#">활동소식</a></li>
 			<li><a href="#">알림마당</a></li>
+			<li><a href="#">자유게시판</a></li>
 		</ul>
 		
 		

@@ -1,4 +1,4 @@
-package com.humantrion.exit.board.controller;
+  package com.humantrion.exit.board.controller;
 
 import java.math.BigDecimal;
 import java.util.Iterator;

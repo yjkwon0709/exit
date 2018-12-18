@@ -58,7 +58,7 @@ public class UserController {
 		if(userMap == null) {
 			mv.addObject("msg", "로그인에 실패하였습니다.");
 		} else {
-			req.getSession().setAttribute("loginInfo.page", userMap);
+			req.getSession().setAttribute("loginInfo", userMap);
 			req.getSession().setMaxInactiveInterval(60*30);
 			mv.addObject("msg", "로그인에 성공하였습니다.");
 		}
