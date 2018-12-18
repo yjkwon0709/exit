@@ -17,5 +17,6 @@
 		<mapper resource="sqlmap/Board.xml"></mapper>
 		<mapper resource="sqlmap/User.xml"></mapper>
 		<mapper resource="sqlmap/Common.xml"></mapper>
+		<mapper resource="sqlmap/Map.xml"></mapper>
 	</mappers>
 </configuration>

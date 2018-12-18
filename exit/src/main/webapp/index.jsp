@@ -64,7 +64,7 @@
 	});
 
 	function fn_openMap(){
-		window.open("<c:url value='/board/boardList.do'/>","map","width=500, height=500");
+		window.open("<c:url value='/map/openMap.do'/>",'Map','width=1200px, height=900px, memnubar=no, toolbar=no, location=no, status=no, scrollbars=no, top=200px, left=200px, fullscreen=no, resizable=no');
 	}
 	
 	function fn_moveToBoard(){
